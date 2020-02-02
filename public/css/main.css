@@ -1,4 +1,48 @@
 body {
     background-color: #333;
     color: white;
+    margin: 2% 30%;
+    font-family: Tahoma, Geneva, Sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+form {
+    background-color: darkgreen;
+    margin-bottom: 5%;
+    padding: 5%;
+    border-radius: 2%;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+#query {
+    border: none;
+    padding: 8px;
+    border-radius: 3%;
+}
+
+#submit {
+    background-color: ghostwhite;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4%;
+    transition: background-color 0.4s;
+    -webkit-transition: background-color 0.4s; /* Safari 4.0 - 8.0 */
+}
+
+#submit:hover {
+    cursor: pointer;
+    background-color: greenyellow;
+}
+
+#results { 
+    display: none;
+    background-color: forestgreen;
+    padding: 5%;
+    border-radius: 2%;
 }

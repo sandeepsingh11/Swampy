@@ -20,10 +20,11 @@ $("#form").submit(function(event) {
     }
     else {
         // make full url
-        var url = "https://api.websitecarbon.com/b?url=" + input;
+        var greenUrl = "https://api.websitecarbon.com/b?url=" + input;
+        var colorUrl = "https://www.colorfyit.com/api/swatches/list.json?url=" + input;
         
-        // get api data
-        $.get(url, function(req, res) {
+        // get green api data
+        $.get(greenUrl, function(req, res) {
             if (res === "success") {
                 var c = req.c;
                 var p = req.p;
@@ -38,10 +39,19 @@ $("#form").submit(function(event) {
                 // get result elements and inject numbers
                 var resultParent = $("#results");
                 var resultChildren = $(resultParent).children();
+                $("#results").css("display", "block");
                 
                 $(resultChildren[0]).html("Results for: " + input);
-                $(resultChildren[1]).html("Carbon: " + c.toFixed(2) + "g");
-                $(resultChildren[2]).html("Percentile: " + p + "%");
+                $(resultChildren[1]).html("Carbon: " + c.toFixed(2) + "g").css("display", "block");
+                $(resultChildren[2]).html("Percentile: " + p + "%").css("display", "block");
+            }
+        });
+
+        // get color api data
+        $.get(colorUrl, function(req, res) {
+            if (res === "success") {
+                var colorObj = JSON.parse(req);
+                console.log(colorObj);
             }
         });
     }
@@ -53,6 +63,10 @@ function correctUrl(input) {
     var extension = input.search(/\.[a-z]{2,}/i); // ".??(?..)" ie. ".ru", ".com", ".space"
     if (extension === -1) {
         console.log(`${input} is not a valid url`);
+
+        $("#results").css("display", "block");
+        $(resultChildren[1]).html("").css("display", "none");
+        $(resultChildren[2]).html("").css("display", "none");
         
         return null;
     }
