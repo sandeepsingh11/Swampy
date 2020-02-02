@@ -11,9 +11,22 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
+// express static folder
+app.use(express.static(__dirname + '/public/'));
+
+
+// use 'server.js' for server / api requests
+const server = require('./server');
+app.use("/swampy", server);
+
+
+// when on the home page, use 'index.html'
 app.get('/', function(req, res) {
+    console.log("-> " + req.body);
+
     res.sendFile(__dirname + "/index.html");
-})
+});
+
 
 // // handle Production
 // if (process.env.NODE_ENV === 'production') {
