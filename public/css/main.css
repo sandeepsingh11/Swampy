@@ -7,6 +7,40 @@ body {
     text-align: center;
 }
 
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: auto;
+}
+
+#navItem {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 30px 0px;
+    background-color: darkgreen;
+    color: whitesmoke;
+}
+
+a {
+    color: whitesmoke;
+    text-decoration: none;
+    padding: 30px;
+}
+
+#aboutDetails {
+    margin-top: 45px;
+}
+
+#aboutDetails a {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: darkgreen;
+    border-radius: 3%;
+}
+
 form {
     background-color: darkgreen;
     margin-bottom: 5%;
